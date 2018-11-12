@@ -1,0 +1,52 @@
+<div class="container" style="display: flex" fxLayout="column">
+    <div class="centerMake">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title><h3 style="font-family: 'Trebuchet MS'">Please upload the csv file that needs to be entered in a database</h3></mat-card-title>
+        </mat-card-header>
+            <!-- <img mat-card-img src="C:\Users\arenduchintala\Documents\Angular\csvuploader\src\favicon.ico"> -->
+    <mat-card-content>
+        <div>
+            <form novalidate [formGroup]="uploaderForm" (ngSubmit) = "onSubmit()" enctype="multipart/form-data" >
+                    <p><input matInput type="file" formControlName="file" (change)="fileSelected($event)"></p> <br>
+                    <p><button mat-button type="submit" [disabled]="!uploaderForm.valid">Upload</button></p>
+            </form>
+        </div>
+      
+    </mat-card-content>
+    </mat-card>
+    </div>
+<div *ngIf="test">
+    <mat-list *ngFor="let mes of test">
+        <mat-list-item>
+            <p>{{mes.id}}</p>
+        </mat-list-item>
+    </mat-list>
+</div>
+
+<div class="centerMake">
+<div *ngIf="response" style="color: green">
+    <p>File Name: {{response.fileName}}</p>
+    <p>Message: {{response.message}}</p>
+</div>
+<div *ngIf="errMsg" class="errColor">
+    <p>
+        <span><strong>Timestamp: </strong> </span> {{errMsg.timestamp}}
+    </p>
+    <p>
+        <span><strong>Status: </strong> </span> {{errMsg.status}}
+    </p>
+    <p>
+        <span><strong>Path: </strong> </span> {{errMsg.path}}
+    </p>
+    <p>
+        <span><strong>Error Message: </strong> </span> {{errMsg.message}}
+    </p>
+</div>
+
+<div *ngIf="incorrectExt">
+    <p>{{incorrectExtMesg}}</p>
+</div>
+
+</div>
+</div>

@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+$background-dark: #9575CD;
+
+.container{
+    margin: 15px;
+    text-align: center;
+}
+
+button{
+    background-color: $background-dark!important;
+    width: 100px;
+}
+
+
+
